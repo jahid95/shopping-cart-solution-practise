@@ -14,35 +14,35 @@ function setInputNumberPhone (fieldId,Increase){
 }
 
 
-function calculateItem(numberField){
+function calculateItem(numberField,value){
     const quantity = document.getElementById(numberField).value;    
-    const price = parseFloat(quantity) * 1219;
+    const price = parseFloat(quantity) * parseFloat(value);
     return price;
 }
-function setPrice(numberField,displayId){
-    const price = calculateItem(numberField);
+function setPrice(numberField,displayId,value){
+    const price = calculateItem(numberField,value);
     const displayPrice = document.getElementById(displayId);
     displayPrice.innerText = price;
 }
 
 document.getElementById('btn-phone-plus').addEventListener('click', function(){ 
     setInputNumberPhone('phone-number-field', true);
-    setPrice('phone-number-field','phone-total');
+    setPrice('phone-number-field','phone-total',1219);
    
 })
 
 document.getElementById('btn-phone-minus').addEventListener('click', function(){ 
     setInputNumberPhone('phone-number-field', false);
-    setPrice('phone-number-field','phone-total');   
+    setPrice('phone-number-field','phone-total',1219);   
 })
 document.getElementById('btn-case-plus').addEventListener('click', function(){ 
     setInputNumberPhone('case-number-field', true);
-    setPrice('case-number-field','case-total');
+    setPrice('case-number-field','case-total','59');
    
 })
 
 document.getElementById('btn-case-minus').addEventListener('click', function(){ 
     setInputNumberPhone('case-number-field', false);
-    setPrice('case-number-field','case-total');   
+    setPrice('case-number-field','case-total','59');   
 })
 
